@@ -1,0 +1,5 @@
+boto3==1.24.68
+gunicorn==20.1.0
+Django==3.2.16
+djangorestframework==3.14.0
+psycopg2
