@@ -17,5 +17,5 @@ RUN pip install -r requirements-dev.txt
 EXPOSE 8000
 
 # We are using the same thing as PROD here but with the --reload option enabled, so it can be used as a dev server.
-CMD ["python", "manage.py" "runserver"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 # CMD ["sleep", "999999"]

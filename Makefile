@@ -33,7 +33,11 @@ test: venv-dev
 start: 
 	$(ACTIVATE) && \
 	DB_HOST=localhost \
-	$(PYTHON) app.py
+    DB_PORT=5432 \
+	DB_USER=postgres \
+	DB_PASSWORD=example \
+	DB_DATABASE=todo \
+	$(PYTHON) manage.py runserver
 
 support:
 	docker-compose up db filebeat elasticsearch kibana
