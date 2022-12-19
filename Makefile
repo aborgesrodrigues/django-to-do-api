@@ -33,14 +33,17 @@ test: venv-dev
 start: 
 	$(ACTIVATE) && \
 	DB_HOST=localhost \
-    DB_PORT=5432 \
+	DB_PORT=5432 \
 	DB_USER=postgres \
 	DB_PASSWORD=example \
 	DB_DATABASE=todo \
+	AWS_ACCESS_KEY_ID=test \
+	AWS_SECRET_ACCESS_KEY=test \
+	AWS_SESSION_TOKEN=test \
 	$(PYTHON) manage.py runserver
 
 support:
-	docker-compose up db filebeat elasticsearch kibana
+	docker-compose up db filebeat elasticsearch kibana localstack
 
 run:
 	docker-compose up --build
