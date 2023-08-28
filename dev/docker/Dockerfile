@@ -16,5 +16,4 @@ RUN pip install -r requirements-dev.txt
 
 EXPOSE 8000
 
-# We are using the same thing as PROD here but with the --reload option enabled, so it can be used as a dev server.
-CMD ["gunicorn", "--worker-tmp-dir", "/dev/shm", "--workers=2", "--threads=4", "--worker-class=gthread", "--log-file=-", "-b", ":8000", "django_to_do_api.wsgi"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
