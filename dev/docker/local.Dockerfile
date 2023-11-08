@@ -13,11 +13,6 @@ RUN apt-get update && \
 # Install python deps, both dev and regular
 RUN pip install -r requirements-dev.txt
 
-ENV DOCKERIZE_VERSION v0.7.0
-
-RUN apt-get install -y wget openssl \
-    && wget -O - https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz | tar xzf - -C /usr/local/bin
-
 COPY ./dev/db/custom-entrypoint.sh /usr/local/bin/custom-entrypoint.sh
 RUN chmod u+x /usr/local/bin/custom-entrypoint.sh
 ENTRYPOINT ["custom-entrypoint.sh"]
